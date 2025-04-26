@@ -1,0 +1,71 @@
+{
+    "component": "SplashScreen",
+    "animations": {
+      "container": {
+        "initial": { "opacity": 1 },
+        "animate": { 
+          "opacity": [1, 0],
+          "transition": { "duration": 0.5 }
+        },
+        "exit": { "opacity": 0 }
+      },
+      "icon": {
+        "initial": { 
+          "scale": 0.5, 
+          "opacity": 0 
+        },
+        "animate": {
+          "scale": 1,
+          "opacity": 1,
+          "transition": {
+            "duration": 0.8,
+            "ease": "easeOut"
+          }
+        }
+      },
+      "title": {
+        "initial": { 
+          "y": 20, 
+          "opacity": 0 
+        },
+        "animate": {
+          "y": 0,
+          "opacity": 1,
+          "transition": {
+            "delay": 0.3,
+            "duration": 0.8
+          }
+        }
+      },
+      "subtitle": {
+        "initial": { 
+          "y": 20, 
+          "opacity": 0 
+        },
+        "animate": {
+          "y": 0,
+          "opacity": 1,
+          "transition": {
+            "delay": 0.5,
+            "duration": 0.8
+          }
+        }
+      }
+    },
+    "content": {
+      "logo": {
+        "type": "Shield",
+        "className": "w-24 h-24 text-sky-400"
+      },
+      "title": "Secure Vote",
+      "subtitle": "Your trusted voting platform"
+    },
+    "styles": {
+      "container": "fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-purple-950 to-purple-500",
+      "titleClass": "text-4xl font-bold text-white mb-4 tracking-wider",
+      "subtitleClass": "text-purple-200 text-lg"
+    },
+    "timing": {
+      "splashDuration": 3000
+    }
+  }

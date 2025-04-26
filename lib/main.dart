@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import 'home_screen.dart';  // Assuming HomeScreen is in the same folder
+import 'splash_screen.dart';
+import 'login_page.dart';
+//import 'party_selection_page.dart'; // Create this page if not done yet
 
 void main() {
   runApp(MyApp());
@@ -10,41 +11,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Figma to Flutter',
+      title: 'Virtual Voting Application',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(),  // Set SplashScreen as the home
-    );
-  }
-}
+      debugShowCheckedModeBanner: false,
 
-// Splash Screen with Lottie animation
-class SplashScreen extends StatefulWidget {
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
+      // Step 1: Use routes to manage navigation
+      routes: {
+        '/': (context) => SplashScreen(),
+        '/login': (context) => LoginPage(),
+        //'/partySelection': (context) => PartySelectionPage(), // target page
+      },
 
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-
-    // Wait for 3 seconds, then navigate to the HomeScreen
-    Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => HomeScreen()),
-      );
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Lottie.asset('assets/Flow 3.json'), // Replace with your animation file
-      ),
+      // Step 2: Set splash screen as initial screen
+      initialRoute: '/',
     );
   }
 }
