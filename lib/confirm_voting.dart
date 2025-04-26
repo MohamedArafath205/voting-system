@@ -4,14 +4,18 @@ import 'dart:async';
 class ConfirmVotingPage extends StatelessWidget {
   final String partyName;
   final String leaderName;
+  final String leaderAge;
   final String description;
   final String partyLogo;
+  final String about;
 
   ConfirmVotingPage({
     required this.partyName,
     required this.leaderName,
+    required this.leaderAge,
     required this.description,
     required this.partyLogo,
+    required this.about,
   });
 
   void _showFingerprintBottomSheet(BuildContext context) {
@@ -23,16 +27,15 @@ class ConfirmVotingPage extends StatelessWidget {
         borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
       ),
       builder: (context) {
-        // Automatically close after 2 seconds
         Future.delayed(Duration(seconds: 2), () {
-          Navigator.of(context).pop(); // Close bottom sheet
+          Navigator.of(context).pop();
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text('Your vote for $partyName has been submitted!'),
               backgroundColor: Colors.green,
             ),
           );
-          Navigator.pop(context); // Navigate back
+          Navigator.pop(context);
         });
 
         return Padding(
@@ -92,7 +95,7 @@ class ConfirmVotingPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               Text(
-                'Leader: $leaderName',
+                'Leader: $leaderName (Age: $leaderAge)',
                 style: TextStyle(fontSize: 18),
                 textAlign: TextAlign.center,
               ),
@@ -107,6 +110,15 @@ class ConfirmVotingPage extends StatelessWidget {
                     fontStyle: FontStyle.italic,
                     color: Colors.grey[700],
                   ),
+                ),
+              ),
+              SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Text(
+                  about,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 15, color: Colors.black87),
                 ),
               ),
               SizedBox(height: 30),

@@ -21,28 +21,32 @@ class VotingPage extends StatelessWidget {
       'partyLogo': 'assets/Ant.jpg',
       'leaderName': 'Leader A',
       'leaderAge': '45',
-      'description': 'Party A focuses on innovation and technology.'
+      'description': 'Party A focuses on innovation and technology.',
+      'about': 'Party A has led major tech reforms since 2010. Leader A is a former software engineer turned politician.'
     },
     {
       'partyName': 'Party B',
       'partyLogo': 'assets/Ara.jpg',
       'leaderName': 'Leader B',
       'leaderAge': '50',
-      'description': 'Party B advocates for environmental sustainability.'
+      'description': 'Party B advocates for environmental sustainability.',
+      'about': 'Party B introduced green energy policies. Leader B has 20 years of experience in environmental activism.'
     },
     {
       'partyName': 'Party C',
       'partyLogo': 'assets/Hari.jpg',
       'leaderName': 'Leader C',
       'leaderAge': '40',
-      'description': 'Party C focuses on economic growth.'
+      'description': 'Party C focuses on economic growth.',
+      'about': 'Party C reduced unemployment by 30%. Leader C is an economist with a focus on startup culture.'
     },
     {
       'partyName': 'Party D',
       'partyLogo': 'assets/Karan.jpg',
       'leaderName': 'Leader D',
       'leaderAge': '55',
-      'description': 'Party D prioritizes social welfare and healthcare.'
+      'description': 'Party D prioritizes social welfare and healthcare.',
+      'about': 'Party D launched major healthcare schemes. Leader D has been active in humanitarian efforts for 25 years.'
     },
   ];
 
@@ -95,8 +99,10 @@ class VotingPage extends StatelessWidget {
                               builder: (context) => ConfirmVotingPage(
                                 partyName: party['partyName']!,
                                 leaderName: party['leaderName']!,
+                                leaderAge: party['leaderAge']!,
                                 partyLogo: party['partyLogo']!,
                                 description: party['description']!,
+                                about: party['about']!,
                               ),
                             ),
                           );
@@ -135,14 +141,8 @@ class VotingPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 8),
-                      Text(
-                        'Leader: ${party['leaderName']}',
-                        textAlign: TextAlign.center,
-                      ),
-                      Text(
-                        'Age: ${party['leaderAge']}',
-                        textAlign: TextAlign.center,
-                      ),
+                      Text('Leader: ${party['leaderName']}'),
+                      Text('Age: ${party['leaderAge']}'),
                       SizedBox(height: 6),
                       Text(
                         party['description']!,
